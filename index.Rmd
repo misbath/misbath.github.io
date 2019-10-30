@@ -1,11 +1,49 @@
 ---
-title: "My awesome website"
+title: ""
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# My professional experiences
+# Academic Experience 
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+### Harvard University T.H. Chan School of Public Health (2019)
+Master’s in Public Health 
+  Field of study: Environmental Health
+  Concentration: Maternal and Child Health
+
+### Washington College (2015)
+Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies 
+  Study Abroad Experience: Universidad San Francisco de Quito, Ecuador
+
+
+# Professional Experience 
+
+### UNICEF (Mongolia)                                                               January 2018-August 2019                          
+Project Manager 
+
+• Gathering, analyzing, and interpreting data to quantify the incidence of children acute respiratory infections and adverse birth outcomes associated with air pollution peaks
+
+• Translating findings into air pollution training material for community health workers and families as well as evidence-based recommendations for relevant environmental policy stakeholders
+
+
+
+### Harvard Center for Climate, Health, and the Global Environment (Tunisia)       September 2017-August 2019
+
+Research Assistant for the International Sustainable Tourism Initiative (ISTI) 
+
+• Identified specific categories of human health that require monitoring for effective implementation of the ISTI’s Carbon Reporting and Management Framework for Tourism Destinations in Tozeur and Djerba, Tunisia
+
+• Designed and conducted surveys to gather statistical data enabling an estimation of the amount of air pollution attributable to tourism-related activities at the destinations and its associated disease burden
+
+
+
+### Harvard Climate Solutions Living Lab (Anchorage, AK)                                 January 2018-May 2018
+ 
+Cross disciplinary research collaboration 
+
+• Assessed the feasibility of different carbon offset projects addressing the environmental, economic, legal and health challenges faced by Alaska Native rural communities
+
+• Designed an implementation plan to establish proper monitoring and evaluation procedures for the selected project and ensure long-lasting improvements in public health for the communities
+
