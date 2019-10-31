@@ -20,9 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -253,63 +250,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -317,16 +257,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -377,46 +307,10 @@ div.tocify {
 </div>
 
 
-<div id="academic-experience" class="section level1">
-<h1>Academic Experience</h1>
-<div id="harvard-university-t.h.-chan-school-of-public-health-2019" class="section level3">
-<h3>Harvard University T.H. Chan School of Public Health (2019)</h3>
-<p>Master’s in Public Health<br />
-Field of study: Environmental Health<br />
-Concentration: Maternal and Child Health</p>
-</div>
-<div id="washington-college-2015" class="section level3">
-<h3>Washington College (2015)</h3>
-<p>Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies<br />
-Study Abroad Experience: Universidad San Francisco de Quito, Ecuador</p>
-</div>
-</div>
-<div id="professional-experience" class="section level1">
-<h1>Professional Experience</h1>
-<div id="unicef-mongolia-january-2018-august-2019" class="section level3">
-<h3>UNICEF (Mongolia) January 2018-August 2019</h3>
-<p>Project Manager</p>
-<p>• Gathering, analyzing, and interpreting data to quantify the incidence of children acute respiratory infections and adverse birth outcomes associated with air pollution peaks</p>
-<p>• Translating findings into air pollution training material for community health workers and families as well as evidence-based recommendations for relevant environmental policy stakeholders</p>
-</div>
-<div id="harvard-center-for-climate-health-and-the-global-environment-tunisia-september-2017-august-2019" class="section level3">
-<h3>Harvard Center for Climate, Health, and the Global Environment (Tunisia) September 2017-August 2019</h3>
-<p>Research Assistant for the International Sustainable Tourism Initiative (ISTI)</p>
-<p>• Identified specific categories of human health that require monitoring for effective implementation of the ISTI’s Carbon Reporting and Management Framework for Tourism Destinations in Tozeur and Djerba, Tunisia</p>
-<p>• Designed and conducted surveys to gather statistical data enabling an estimation of the amount of air pollution attributable to tourism-related activities at the destinations and its associated disease burden</p>
-</div>
-<div id="harvard-climate-solutions-living-lab-anchorage-ak-january-2018-may-2018" class="section level3">
-<h3>Harvard Climate Solutions Living Lab (Anchorage, AK) January 2018-May 2018</h3>
-<p>Cross disciplinary research collaboration</p>
-<p>• Assessed the feasibility of different carbon offset projects addressing the environmental, economic, legal and health challenges faced by Alaska Native rural communities</p>
-<p>• Designed an implementation plan to establish proper monitoring and evaluation procedures for the selected project and ensure long-lasting improvements in public health for the communities</p>
-</div>
-</div>
 
 
 
-</div>
-</div>
+
 
 </div>
 
@@ -449,32 +343,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

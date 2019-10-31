@@ -9,13 +9,13 @@ output:
 # Academic Experience 
 
 ### Harvard University T.H. Chan School of Public Health (2019)
-Master’s in Public Health 
-  Field of study: Environmental Health
-  Concentration: Maternal and Child Health
+Master’s in Public Health  
+  Field of study: Environmental Health  
+  Concentration: Maternal and Child Health  
 
 ### Washington College (2015)
-Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies 
-  Study Abroad Experience: Universidad San Francisco de Quito, Ecuador
+Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies   
+  Study Abroad Experience: Universidad San Francisco de Quito, Ecuador  
 
 
 # Professional Experience 
