@@ -47,7 +47,7 @@ instacart %>%
           color = ~reordered,
           type = "scatter", 
           alpha = 0.5) %>% 
-   layout(title = 'Relationship between order of item addition to cart and time elapsed since last order',
+   layout(title = 'Order of item addition to cart and time elapsed since last order',
           xaxis = list(title = "Days since the last order"), 
           yaxis = list(title = "Order of item addition to cart"), 
           showlegend = FALSE)
