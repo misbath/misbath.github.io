@@ -8,4 +8,34 @@ output:
 
 
 
+```{r}
+library(tidyverse)
+library(viridis)
+library(p8105.datasets)
+library(plotly)
+
+data("instacart")
+head(instacart)
+str(instacart)
+
+```
+
+```{r bar chart}
+a <- list(
+  title = "Aisle")
+
+b <- list(
+  title = "Number of Products Ordered")
+
+instacart %>% 
+   group_by(aisle) %>% 
+   summarize(n = n()) %>%
+   filter(n > 10000) %>%
+   plot_ly(x = ~aisle, 
+           y = ~n, 
+          type = "bar") %>% 
+   layout(xaxis = a, yaxis = b, showlegend = FALSE)
+
+```
+
 

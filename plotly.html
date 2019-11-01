@@ -16,13 +16,20 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -105,33 +112,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 60px;
+  padding-top: 61px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 66px;
+  margin-top: -66px;
 }
 .section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 66px;
+  margin-top: -66px;
 }
 .section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 66px;
+  margin-top: -66px;
 }
 .section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 66px;
+  margin-top: -66px;
 }
 .section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 66px;
+  margin-top: -66px;
 }
 .section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 66px;
+  margin-top: -66px;
 }
 .dropdown-submenu {
   position: relative;
@@ -307,7 +314,96 @@ $(document).ready(function () {
 </div>
 
 
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(viridis)</code></pre>
+<pre><code>## Loading required package: viridisLite</code></pre>
+<pre class="r"><code>library(p8105.datasets)
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>data(&quot;instacart&quot;)
+head(instacart)</code></pre>
+<pre><code>## # A tibble: 6 x 15
+##   order_id product_id add_to_cart_ord… reordered user_id eval_set
+##      &lt;int&gt;      &lt;int&gt;            &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;chr&gt;   
+## 1        1      49302                1         1  112108 train   
+## 2        1      11109                2         1  112108 train   
+## 3        1      10246                3         0  112108 train   
+## 4        1      49683                4         0  112108 train   
+## 5        1      43633                5         1  112108 train   
+## 6        1      13176                6         0  112108 train   
+## # … with 9 more variables: order_number &lt;int&gt;, order_dow &lt;int&gt;,
+## #   order_hour_of_day &lt;int&gt;, days_since_prior_order &lt;int&gt;,
+## #   product_name &lt;chr&gt;, aisle_id &lt;int&gt;, department_id &lt;int&gt;, aisle &lt;chr&gt;,
+## #   department &lt;chr&gt;</code></pre>
+<pre class="r"><code>str(instacart)</code></pre>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    1384617 obs. of  15 variables:
+##  $ order_id              : int  1 1 1 1 1 1 1 1 36 36 ...
+##  $ product_id            : int  49302 11109 10246 49683 43633 13176 47209 22035 39612 19660 ...
+##  $ add_to_cart_order     : int  1 2 3 4 5 6 7 8 1 2 ...
+##  $ reordered             : int  1 1 0 0 1 0 0 1 0 1 ...
+##  $ user_id               : int  112108 112108 112108 112108 112108 112108 112108 112108 79431 79431 ...
+##  $ eval_set              : chr  &quot;train&quot; &quot;train&quot; &quot;train&quot; &quot;train&quot; ...
+##  $ order_number          : int  4 4 4 4 4 4 4 4 23 23 ...
+##  $ order_dow             : int  4 4 4 4 4 4 4 4 6 6 ...
+##  $ order_hour_of_day     : int  10 10 10 10 10 10 10 10 18 18 ...
+##  $ days_since_prior_order: int  9 9 9 9 9 9 9 9 30 30 ...
+##  $ product_name          : chr  &quot;Bulgarian Yogurt&quot; &quot;Organic 4% Milk Fat Whole Milk Cottage Cheese&quot; &quot;Organic Celery Hearts&quot; &quot;Cucumber Kirby&quot; ...
+##  $ aisle_id              : int  120 108 83 83 95 24 24 21 2 115 ...
+##  $ department_id         : int  16 16 4 4 15 4 4 16 16 7 ...
+##  $ aisle                 : chr  &quot;yogurt&quot; &quot;other creams cheeses&quot; &quot;fresh vegetables&quot; &quot;fresh vegetables&quot; ...
+##  $ department            : chr  &quot;dairy eggs&quot; &quot;dairy eggs&quot; &quot;produce&quot; &quot;produce&quot; ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   order_id = col_integer(),
+##   ..   product_id = col_integer(),
+##   ..   add_to_cart_order = col_integer(),
+##   ..   reordered = col_integer(),
+##   ..   user_id = col_integer(),
+##   ..   eval_set = col_character(),
+##   ..   order_number = col_integer(),
+##   ..   order_dow = col_integer(),
+##   ..   order_hour_of_day = col_integer(),
+##   ..   days_since_prior_order = col_integer(),
+##   ..   product_name = col_character(),
+##   ..   aisle_id = col_integer(),
+##   ..   department_id = col_integer(),
+##   ..   aisle = col_character(),
+##   ..   department = col_character()
+##   .. )</code></pre>
+<pre class="r"><code>a &lt;- list(
+  title = &quot;Aisle&quot;)
 
+b &lt;- list(
+  title = &quot;Number of Products Ordered&quot;)
+
+instacart %&gt;% 
+   group_by(aisle) %&gt;% 
+   summarize(n = n()) %&gt;%
+   filter(n &gt; 10000) %&gt;%
+   plot_ly(x = ~aisle, 
+           y = ~n, 
+          type = &quot;bar&quot;) %&gt;% 
+   layout(xaxis = a, yaxis = b, showlegend = FALSE)</code></pre>
+<div id="htmlwidget-002ef27cfc9016dffac9" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-002ef27cfc9016dffac9">{"x":{"visdat":{"1d49264f96ce":["function () ","plotlyVisDat"]},"cur_data":"1d49264f96ce","attrs":{"1d49264f96ce":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Aisle","type":"category","categoryorder":"array","categoryarray":["baby food formula","baking ingredients","bread","butter","candy chocolate","canned jarred vegetables","canned meals beans","cereal","chips pretzels","crackers","cream","dry pasta","eggs","energy granola bars","fresh dips tapenades","fresh fruits","fresh herbs","fresh vegetables","frozen meals","frozen produce","hot dogs bacon sausage","ice cream ice","juice nectars","lunch meat","milk","nuts seeds dried fruit","oils vinegars","other creams cheeses","packaged cheese","packaged produce","packaged vegetables fruits","paper goods","refrigerated","soft drinks","soup broth bouillon","soy lactosefree","spreads","water seltzer sparkling water","yogurt"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number of Products Ordered"},"showlegend":false,"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["baby food formula","baking ingredients","bread","butter","candy chocolate","canned jarred vegetables","canned meals beans","cereal","chips pretzels","crackers","cream","dry pasta","eggs","energy granola bars","fresh dips tapenades","fresh fruits","fresh herbs","fresh vegetables","frozen meals","frozen produce","hot dogs bacon sausage","ice cream ice","juice nectars","lunch meat","milk","nuts seeds dried fruit","oils vinegars","other creams cheeses","packaged cheese","packaged produce","packaged vegetables fruits","paper goods","refrigerated","soft drinks","soup broth bouillon","soy lactosefree","spreads","water seltzer sparkling water","yogurt"],"y":[13198,13088,23635,10575,11453,12679,11774,16201,31269,19592,12356,11298,19875,17449,15142,150473,16052,150609,18221,22453,12813,22676,14350,16957,32644,12532,10620,12820,41699,13460,78493,12694,23228,16279,15109,26240,12102,36617,55240],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
 
 
