@@ -1,27 +1,25 @@
 ---
-title: ""
+title: "Instacart Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-#Instacart Plots
-
 ```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(viridis)
 library(p8105.datasets)
 library(plotly)
-
-data("instacart")
-head(instacart)
-str(instacart)
-
 ```
 
-##Bar chart
-```{r bar chart}
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
 instacart %>% 
    group_by(aisle) %>% 
    summarize(n = n()) %>%
@@ -33,11 +31,14 @@ instacart %>%
           xaxis = list(title = "Aisle"), 
           yaxis = list(title = "Number of Products Ordered"), 
           showlegend = FALSE)
-
 ```
 
-##Scatterplot
-```{r scatterplot, message=FALSE}
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
 instacart %>% 
   filter(add_to_cart_order <= 15) %>%
   sample_n(300) %>%
@@ -53,7 +54,8 @@ instacart %>%
           showlegend = FALSE)
 ```
 
-##Boxplot
+### Chart C
+
 ```{r}
 instacart %>% 
   filter(aisle %in% c("frozen vegan vegetarian", "frozen appetizers sides",
@@ -68,6 +70,5 @@ instacart %>%
           xaxis = list(title = "Frozen Aisles"), 
           yaxis = list(title = "Hour of Order Placement"), 
           showlegend = FALSE)
-
 ```
 

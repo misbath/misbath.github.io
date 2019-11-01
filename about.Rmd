@@ -2,18 +2,51 @@
 title: ""
 output: 
   html_document:
-    toc: false
-    toc_float: false
+    toc: true
+    toc_float: true
 ---
 
-# Bio
+# Academic Experience 
 
-Before joining Mailman, I received an MPH in Environmental Health from the Harvard School of Public Health. During my time at Harvard, I worked with UNICEF in Mongolia on a study of the association between air pollution exposure and children respiratory health outcomes in Ulaanbaatar. Prior to that, I assessed the impact of unsustainable tourism activities on the health and well-being of local populations in Tunisia. At Mailman, I plan to conduct research at the intersection of air pollution-related health outcomes, energy use, and environmental policy in the context of climate change.
+### Harvard University T.H. Chan School of Public Health (2019)
+Master’s in Public Health  
+  Field of study: Environmental Health  
+  Concentration: Maternal and Child Health  
 
-A detailed description of my training and experience can be found [here](index.html).
+### Washington College (2015)
+Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies   
+  Study Abroad Experience: Universidad San Francisco de Quito, Ecuador  
 
-This is one of my favorite shots from Mongolia. 
 
-<img src="images/lake.jpg" style="width:75%">
+# Professional Experience 
+
+### UNICEF (Mongolia)                                                               January 2018-August 2019                          
+Project Manager 
+
+• Gathering, analyzing, and interpreting data to quantify the incidence of children acute respiratory infections and adverse birth outcomes associated with air pollution peaks
+
+• Translating findings into air pollution training material for community health workers and families as well as evidence-based recommendations for relevant environmental policy stakeholders
+
+
+
+### Harvard Center for Climate, Health, and the Global Environment (Tunisia)       September 2017-August 2019
+
+Research Assistant for the International Sustainable Tourism Initiative (ISTI) 
+
+• Identified specific categories of human health that require monitoring for effective implementation of the ISTI’s Carbon Reporting and Management Framework for Tourism Destinations in Tozeur and Djerba, Tunisia
+
+• Designed and conducted surveys to gather statistical data enabling an estimation of the amount of air pollution attributable to tourism-related activities at the destinations and its associated disease burden
+
+
+
+### Harvard Climate Solutions Living Lab (Anchorage, AK)                                 January 2018-May 2018
+ 
+Cross disciplinary research collaboration 
+
+• Assessed the feasibility of different carbon offset projects addressing the environmental, economic, legal and health challenges faced by Alaska Native rural communities
+
+• Designed an implementation plan to establish proper monitoring and evaluation procedures for the selected project and ensure long-lasting improvements in public health for the communities
+
+
 
 
