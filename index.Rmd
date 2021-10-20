@@ -12,4 +12,4 @@ My name is Misbath and I am a current Climate and Health PhD candidate in Enviro
 
 A detailed description of my training and experience can be found [here](about.html). My Linkedin page can be found [here](https://linkedin.com/in/misbath-daouda-007089103).
 
-<img src="images/md-profile.jpg" style="width:75%">
+<img src="images/md-profile.jpg" style="width:55%">
