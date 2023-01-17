@@ -1,0 +1,19 @@
+---
+title: ""
+output: 
+  html_document:
+    toc: false
+    toc_float: false
+---
+
+#### Yosemite National Park, 2022
+<img src="images/yosemite-reflection.jpeg" style="width:65%">
+
+#### Tanzania, 2021
+<img src="images/lion.JPG" style="width:65%">
+ 
+#### Tanzania, 2021
+<img src="images/leopard-stretch.JPG" style="width:65%">
+
+#### New York City, 2021
+<img src="images/one-summit.jpeg" style="width:65%">

@@ -1,0 +1,28 @@
+---
+title: ""
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+# Energy transitions...
+
+### Gas-to-induction: What are the potential benefits, barriers, and facilitators of this transition in NYC?
+Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies   
+  Study Abroad Experience: Universidad San Francisco de Quito, Ecuador
+
+### Gender: A driver of the intra-household distribution of energy transition benefits in Ghana?
+Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies   
+  Study Abroad Experience: Universidad San Francisco de Quito, Ecuador  
+  
+### Has the transition away from coal improved racial/ethnic disparities in preterm birth in the US?
+Master’s in Public Health  
+  Field of study: Environmental Health  
+  Concentration: Maternal and Child Health 
+
+# ... And frameworks to better evaluate them
+
+### Non-linear modeling of racial/ethnic disparities in air pollution 
+
+### Long-term exposure modeling for mother/child pairs in Ghana
+

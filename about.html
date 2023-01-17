@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title></title>
+<title>about.knit</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -29,12 +38,16 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -47,32 +60,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 
 
@@ -82,10 +70,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -102,40 +86,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 61px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 66px;
-  margin-top: -66px;
-}
-.section h2 {
-  padding-top: 66px;
-  margin-top: -66px;
-}
-.section h3 {
-  padding-top: 66px;
-  margin-top: -66px;
-}
-.section h4 {
-  padding-top: 66px;
-  margin-top: -66px;
-}
-.section h5 {
-  padding-top: 66px;
-  margin-top: -66px;
-}
-.section h6 {
-  padding-top: 66px;
-  margin-top: -66px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -163,7 +120,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -175,7 +132,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -186,10 +143,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -201,7 +171,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -237,6 +206,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -265,6 +235,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -320,7 +296,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -347,13 +323,13 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="about.html">Experience</a>
+  <a href="projects.html">Research</a>
 </li>
 <li>
-  <a href="plotly.html">Plotly</a>
+  <a href="pubs.html">Publications</a>
 </li>
 <li>
-  <a href="dashboard.html">Dashboard</a>
+  <a href="photos.html">Photography</a>
 </li>
 <li>
   <a href="mailto:&lt;md3851@cumc.columbia.edu&gt;">
@@ -372,7 +348,7 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -382,7 +358,8 @@ div.tocify {
 
 <div id="academic-experience" class="section level1">
 <h1>Academic Experience</h1>
-<div id="harvard-university-t.h.-chan-school-of-public-health-2019" class="section level3">
+<div id="harvard-university-t.h.-chan-school-of-public-health-2019"
+class="section level3">
 <h3>Harvard University T.H. Chan School of Public Health (2019)</h3>
 <p>Master’s in Public Health<br />
 Field of study: Environmental Health<br />
@@ -390,7 +367,8 @@ Concentration: Maternal and Child Health</p>
 </div>
 <div id="washington-college-2015" class="section level3">
 <h3>Washington College (2015)</h3>
-<p>Bachelor of Science in Chemistry, Bachelor of Art in Hispanic Studies<br />
+<p>Bachelor of Science in Chemistry, Bachelor of Art in Hispanic
+Studies<br />
 Study Abroad Experience: Universidad San Francisco de Quito, Ecuador</p>
 </div>
 </div>
@@ -400,41 +378,65 @@ Study Abroad Experience: Universidad San Francisco de Quito, Ecuador</p>
 <h3>UNICEF (Mongolia)</h3>
 <p>January 2018-August 2019</p>
 <p>Project Manager</p>
-<p>• Gathering, analyzing, and interpreting data to quantify the incidence of children acute respiratory infections and adverse birth outcomes associated with air pollution peaks</p>
-<p>• Translating findings into air pollution training material for community health workers and families as well as evidence-based recommendations for relevant environmental policy stakeholders</p>
+<p>• Gathering, analyzing, and interpreting data to quantify the
+incidence of children acute respiratory infections and adverse birth
+outcomes associated with air pollution peaks</p>
+<p>• Translating findings into air pollution training material for
+community health workers and families as well as evidence-based
+recommendations for relevant environmental policy stakeholders</p>
 </div>
-<div id="harvard-center-for-climate-health-and-the-global-environment-tunisia" class="section level3">
-<h3>Harvard Center for Climate, Health, and the Global Environment (Tunisia)</h3>
+<div
+id="harvard-center-for-climate-health-and-the-global-environment-tunisia"
+class="section level3">
+<h3>Harvard Center for Climate, Health, and the Global Environment
+(Tunisia)</h3>
 <p>September 2017-August 2019</p>
-<p>Research Assistant for the International Sustainable Tourism Initiative (ISTI)</p>
-<p>• Identified specific categories of human health that require monitoring for effective implementation of the ISTI’s Carbon Reporting and Management Framework for Tourism Destinations in Tozeur and Djerba, Tunisia</p>
-<p>• Designed and conducted surveys to gather statistical data enabling an estimation of the amount of air pollution attributable to tourism-related activities at the destinations and its associated disease burden</p>
+<p>Research Assistant for the International Sustainable Tourism
+Initiative (ISTI)</p>
+<p>• Identified specific categories of human health that require
+monitoring for effective implementation of the ISTI’s Carbon Reporting
+and Management Framework for Tourism Destinations in Tozeur and Djerba,
+Tunisia</p>
+<p>• Designed and conducted surveys to gather statistical data enabling
+an estimation of the amount of air pollution attributable to
+tourism-related activities at the destinations and its associated
+disease burden</p>
 </div>
-<div id="harvard-climate-solutions-living-lab-anchorage-ak" class="section level3">
+<div id="harvard-climate-solutions-living-lab-anchorage-ak"
+class="section level3">
 <h3>Harvard Climate Solutions Living Lab (Anchorage, AK)</h3>
 <p>January 2018-May 2018</p>
 <p>Cross disciplinary research collaboration</p>
-<p>• Assessed the feasibility of different carbon offset projects addressing the environmental, economic, legal and health challenges faced by Alaska Native rural communities</p>
-<p>• Designed an implementation plan to establish proper monitoring and evaluation procedures for the selected project and ensure long-lasting improvements in public health for the communities</p>
+<p>• Assessed the feasibility of different carbon offset projects
+addressing the environmental, economic, legal and health challenges
+faced by Alaska Native rural communities</p>
+<p>• Designed an implementation plan to establish proper monitoring and
+evaluation procedures for the selected project and ensure long-lasting
+improvements in public health for the communities</p>
+<p>#Teaching Experience<br />
+### Harvard T.H. Chan School of Public Health, Office of Education
+(Boston, MA)<br />
+Fall 2018</p>
+<p>Teaching Assistant for ID216: Critical Thinking and Action for Public
+Health Professionals<br />
+• Designed application labs and graded memos for the Tobacco Control and
+Communications module</p>
 </div>
-</div>
-<div id="teaching-experience" class="section level1">
-<h1>Teaching Experience</h1>
-<div id="harvard-t.h.-chan-school-of-public-health-office-of-education-boston-ma" class="section level3">
-<h3>Harvard T.H. Chan School of Public Health, Office of Education (Boston, MA)</h3>
-<p>Fall 2018</p>
-<p>Teaching Assistant for ID216: Critical Thinking and Action for Public Health Professionals<br />
-• Designed application labs and graded memos for the Tobacco Control and Communications module</p>
-</div>
-<div id="nibr-office-of-diversity-and-inclusion-cambridge-ma" class="section level3">
+<div id="nibr-office-of-diversity-and-inclusion-cambridge-ma"
+class="section level3">
 <h3>NIBR Office of Diversity and Inclusion (Cambridge, MA)</h3>
 <p>May 2016 to August 2016</p>
-<p>Gap Year Scholar • Designed a NIH R01 grant writing workshop for the 2016 group of Novartis Summer Scholars</p>
+<p>Gap Year Scholar • Designed a NIH R01 grant writing workshop for the
+2016 group of Novartis Summer Scholars</p>
 </div>
-<div id="washington-college-office-of-academic-skills-chestertown-md" class="section level3">
+<div id="washington-college-office-of-academic-skills-chestertown-md"
+class="section level3">
 <h3>Washington College Office of Academic Skills (Chestertown, MD)</h3>
 <p>August 2012 to May 2015</p>
-<p>Teaching Assistant in Biology and Organic Chemistry • Designed weekly review sessions to assist students in understanding course material French and Spanish Peer Tutor • Selected by the Modern Languages Department to tutor fellow students</p>
+<p>Teaching Assistant in Biology and Organic Chemistry • Designed weekly
+review sessions to assist students in understanding course material
+French and Spanish Peer Tutor • Selected by the Modern Languages
+Department to tutor fellow students</p>
 </div>
 </div>
 
@@ -449,7 +451,7 @@ Study Abroad Experience: Universidad San Francisco de Quito, Ecuador</p>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -467,7 +469,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -476,6 +478,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
@@ -488,7 +493,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

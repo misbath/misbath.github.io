@@ -3,8 +3,12 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "Experience"
-      href: about.html
+    - text: "Research"
+      href: projects.html
+    - text: "Publications"
+      href: pubs.html
+    - text: "Photography"
+      href: photos.html
     - icon: fa-envelope fa-lg
       href: mailto:<md3851@cumc.columbia.edu>
     - icon: fa-github fa-lg
