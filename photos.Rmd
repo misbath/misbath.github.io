@@ -17,3 +17,9 @@ output:
 
 #### New York City, 2021
 <img src="images/one-summit.jpeg" style="width:65%">
+
+#### Paris, 2021 
+<img src="images/eiffel-tower-reflection.jpeg" style="width:65%">
+
+#### Madagascar, 2019
+<img src="images/mada_road.JPG" style="width:65%">
