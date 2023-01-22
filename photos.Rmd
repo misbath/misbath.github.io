@@ -23,3 +23,6 @@ output:
 
 #### Madagascar, 2019
 <img src="images/mada_road.JPG" style="width:65%">
+
+#### Alaska, 2018
+<img src="images/alaska-glacier.jpeg" style="width:65%">
